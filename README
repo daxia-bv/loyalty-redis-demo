@@ -1,0 +1,64 @@
+
+1. GET virtualenv
+===================
+$ curl -O https://raw.github.com/pypa/virtualenv/master/virtualenv.py
+
+
+2. START a new sandboxed python environment (named "loyalty_env" here)
+=======================================================================
+$ python virtualenv.py loyalty_env
+
+
+3. INSIDE your new sandbox loyalty_env
+=======================================
+$ . loyalty_env/bin/activate
+(loyalty_env)$ pip install redis
+(loyalty_env)$ pip install psycopg
+
+Now you have loyalty_env sandbox setup with redis and Postgres libraries. To get out of the sanbox, type 'deactivate'. And to get back to the sandboxes enviroment, type the '. loyalty_env/bin/activate' command
+
+
+4. MAKE slaeps.py executable
+=============================
+$ chmod a+x slaeps.py
+
+5. CONFIGURE Redis and Database
+================================
+Look inside sl_redis.py and sl_db.py. If you have Redis running locally (see section "INSTALLING Redis locally
+"), leave config pointed at localhost.
+
+6. RUN slaeps.py
+=================
+(loyalty_env)$ ./slaeps -mg 10188
+
+
+
+
+
+INSTALLING Redis locally
+=========================
+http://redis.io/documentation
+http://openmymind.net/2012/1/23/The-Little-Redis-Book/
+
+
+Installing locally:
+$ wget http://redis.googlecode.com/files/redis-2.6.0-rc6.tar.gz
+$ tar xzf redis-2.6.0-rc6.tar.gz
+$ cd redis-2.6.0-rc6
+$ make
+
+Start server:
+$ src/redis-server
+
+In a different terminal, run:
+$ src/redis-cli
+redis> hmset user:1 name Bruce age 35
+OK
+redis> hgetall user:1
+
+
+
+
+REFERENCES
+===========
+http://www.virtualenv.org/en/latest/index.html
