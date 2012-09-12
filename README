@@ -1,4 +1,3 @@
-
 1. GET virtualenv
 ===================
 $ curl -O https://raw.github.com/pypa/virtualenv/master/virtualenv.py
@@ -13,7 +12,7 @@ $ python virtualenv.py loyalty_env
 =======================================
 $ . loyalty_env/bin/activate
 (loyalty_env)$ pip install redis
-(loyalty_env)$ pip install psycopg
+(loyalty_env)$ pip install psycopg2
 
 Now you have loyalty_env sandbox setup with redis and Postgres libraries. To get out of the sanbox, type 'deactivate'. And to get back to the sandboxes enviroment, type the '. loyalty_env/bin/activate' command
 
