@@ -1,7 +1,8 @@
 import redis
 
 host_name = 'localhost'
-# host_name = 'fisheye'
+# host_name = 'sf1ddisc002'
+
 
 redis_conn = redis.StrictRedis(host=host_name, port=6379, db=0)
 pipe = redis_conn.pipeline()
